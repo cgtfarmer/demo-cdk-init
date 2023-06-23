@@ -1,0 +1,15 @@
+version: "3.9"
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}
+
+services:
+  cdk:
+    build:
+      context: .
+      target: cdk-typescript
+    user: node
+    tty: true
+    volumes:
+      - ./:/home/node/app
